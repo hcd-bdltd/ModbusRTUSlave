@@ -202,6 +202,7 @@ void ModbusRTUSlave::_write(uint8_t len) {
     if (_dePin != 255) digitalWrite(_dePin, HIGH);
     _serial->write(_buf, len + 2);
     _serial->flush();
+    delay(1);
     if (_dePin != 255) digitalWrite(_dePin, LOW);
   }
 }
