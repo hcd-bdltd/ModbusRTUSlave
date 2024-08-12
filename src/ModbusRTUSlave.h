@@ -18,7 +18,7 @@ class ModbusRTUSlave {
     void configureInputRegisters(uint16_t numInputRegisters, WordRead inputRegisterRead);
     void begin(uint8_t id, uint32_t baud, uint8_t config = 0x06);
     void poll();
-    
+
   private:
     Stream *_serial;
     uint8_t *_buf;
@@ -38,6 +38,7 @@ class ModbusRTUSlave {
     uint32_t _charTimeout;
     uint32_t _frameTimeout;
     uint32_t _responseDelay;
+    uint32_t _flushCompensationDelay;
     void _processBoolRead(uint16_t numBools, BoolRead boolRead);
     void _processWordRead(uint16_t numWords, WordRead wordRead);
     void _exceptionResponse(uint8_t code);
